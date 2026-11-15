@@ -1,0 +1,19 @@
+### 1. Get all notes
+GET http://localhost:8080/notes/getNotes
+Accept: application/json
+
+### 2. Create a note
+POST http://localhost:8080/notes/postNotes
+Content-Type: application/json
+
+{
+  "title": "Learn Spring Boot",
+  "content": "Build REST APIs"
+}
+
+### 3. Get a note by ID
+GET http://localhost:8080/notes/1
+Accept: application/json
+
+### 4. Delete a note
+DELETE http://localhost:8080/notes/1
