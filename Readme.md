@@ -24,4 +24,9 @@ REST API for creating and managing notes. Spring Boot 4, Java 21, PostgreSQL.
 (steps: clone, create .env, docker compose up)
 
 ## Design decisions
-(your 5 sentences)
+## Design decisions
+- **DTO for requests:** fields not in the DTO are ignored, so clients can't set `id` or `createdAt`, and only valid input reaches the entity.
+- **Global exception handler:** exceptions are caught in one place and returned as clean, consistent JSON (404 for missing notes, 400 with per-field validation messages).
+- **Multi-stage Dockerfile:** Maven builds the jar in the first stage; the final image contains only a JRE and the jar, so it's smaller and has fewer tools an attacker could use.
+- **Secrets in environment variables:** passwords never enter the code or Git history; `.env` is gitignored.
+- **Database not exposed:** the DB port isn't published, so only the app container can reach Postgres over Docker's internal network.
