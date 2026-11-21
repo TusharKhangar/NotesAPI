@@ -30,3 +30,5 @@ REST API for creating and managing notes. Spring Boot 4, Java 21, PostgreSQL.
 - **Multi-stage Dockerfile:** Maven builds the jar in the first stage; the final image contains only a JRE and the jar, so it's smaller and has fewer tools an attacker could use.
 - **Secrets in environment variables:** passwords never enter the code or Git history; `.env` is gitignored.
 - **Database not exposed:** the DB port isn't published, so only the app container can reach Postgres over Docker's internal network.
+
+**Try it live** : http://92.4.93.229:8080/swagger-ui.html
